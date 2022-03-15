@@ -17,7 +17,7 @@
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);\r",
 									"pm.test(\"Status code is 200\", () => pm.expect(responseCode.code).to.equal(200));\r",
-									"pm.test(\"Response time 2 seconds\", () => pm.expect(pm.response.responseTime).to.be.below(20000));\r",
+									"pm.test(\"Response time 2 seconds\", () => pm.expect(pm.response.responseTime).to.be.below(2000));\r",
 									"pm.test(\"6 results per page\", () => pm.expect(jsonData.data.length).to.equal(6));\r",
 									"pm.test(\"Avatar in the second result is not null\", () => pm.expect(jsonData.data[1].avatar).to.not.equal(null));\r",
 									"pm.test(\"last_name in the third results is Wong\", () => pm.expect(jsonData.data[2].last_name).to.equal(\"Wong\"));\r",
@@ -56,7 +56,7 @@
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);\r",
 									"pm.test(\"Status code is 200\", () => pm.expect(responseCode.code).to.equal(200));\r",
-									"pm.test(\"Response time 2 seconds\", () => pm.expect(pm.response.responseTime).to.be.below(20000));\r",
+									"pm.test(\"Response time 2 seconds\", () => pm.expect(pm.response.responseTime).to.be.below(2000));\r",
 									"pm.test(\"Returned id same as id of global variable \", () => pm.expect(jsonData.data.id).to.equal(pm.globals.get(\"fifth_id\")));"
 								],
 								"type": "text/javascript"
@@ -97,7 +97,7 @@
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);\r",
 									"pm.test(\"Status code is 201\", () => pm.expect(responseCode.code).to.equal(201));\r",
-									"pm.test(\"Response time 2 seconds\", () => pm.expect(pm.response.responseTime).to.be.below(20000));\r",
+									"pm.test(\"Response time 2 seconds\", () => pm.expect(pm.response.responseTime).to.be.below(2000));\r",
 									"pm.test(\"Returned id not null\", () => pm.expect(jsonData.id).to.not.equal(null));\r",
 									"pm.test(\"createAt id not null\", () => pm.expect(jsonData.createAt).to.not.equal(null));\r",
 									"pm.test(\"returned name is Rasha\", () => pm.expect(jsonData.name).to.equal(\"Rasha\"));\r",
@@ -144,7 +144,7 @@
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);\r",
 									"pm.test(\"Status code is 200\", () => pm.expect(responseCode.code).to.equal(200));\r",
-									"pm.test(\"Response time 2 seconds\", () => pm.expect(pm.response.responseTime).to.be.below(20000));\r",
+									"pm.test(\"Response time 2 seconds\", () => pm.expect(pm.response.responseTime).to.be.below(2000));\r",
 									"pm.test(\"returned job is Postman Master\", () => pm.expect(jsonData.job).to.equal(\"Postman Master\"));\r",
 									"pm.test(\"updatedAt id not null\", () => pm.expect(jsonData.updatedAt).to.not.equal(null));\r",
 									""
@@ -186,7 +186,7 @@
 							"script": {
 								"exec": [
 									"pm.test(\"Status code is 204\", () => pm.expect(responseCode.code).to.equal(204));\r",
-									"pm.test(\"Response time 2 seconds\", () => pm.expect(pm.response.responseTime).to.be.below(20000));\r",
+									"pm.test(\"Response time 2 seconds\", () => pm.expect(pm.response.responseTime).to.be.below(2000));\r",
 									"\r",
 									""
 								],
