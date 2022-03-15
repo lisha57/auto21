@@ -6,21 +6,21 @@ pipeline {
                 git 'https://github.com/lisha57/auto21.git'
             }
         }
-//         stage('Build') {
-//             steps {
-//                 bat "mvn compile"
-//             }
-//         }
-//         stage('Test') {
-//             steps {
-//                 bat "mvn test"
-//             }
-//             post {
-//                 always {
-//                     junit '**/TEST*.xml'
-//                 }
-//             }
-//         }
+        stage('Build') {
+            steps {
+                bat "mvn compile"
+            }
+        }
+        stage('Test') {
+            steps {
+                bat "mvn test"
+            }
+            post {
+                always {
+                    junit '**/TEST*.xml'
+                }
+            }
+        }
           stage('newman') {
             steps {
                 sh 'newman run Postman_Collection.postman_collection.json --environment Postman_Environment.postman_environment.json --reporters junit'
