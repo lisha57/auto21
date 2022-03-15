@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.9.0 on win32)" generated="20220310 00:07:34.978" rpa="false" schemaversion="2">
+<suite id="s1" name="InvalidLogin" source="C:\Users\lisha\PycharmProjects\Infotiv\Tests\FunctionalTestSuite\InvalidLogin.robot">
+<test id="s1-t1" name="Verify login Fails With The Wrong Email">
+<kw name="Start testCase" library="CommonFunctionality" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220310 00:07:35.341" level="INFO">Opening browser 'chrome' to base url 'http://rental14.infotiv.net/'.</msg>
+<status status="PASS" starttime="20220310 00:07:35.341" endtime="20220310 00:07:37.097"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220310 00:07:37.098" endtime="20220310 00:07:37.244"/>
+</kw>
+<status status="PASS" starttime="20220310 00:07:35.341" endtime="20220310 00:07:37.244"/>
+</kw>
+<kw name="Verify login Fails With The Wrong Email" library="keywords">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${"email_test"}</arg>
+<arg>Test12@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220310 00:07:37.250" level="INFO">Typing text 'Test12@gmail.com' into text field '//*[@id="email"]'.</msg>
+<status status="PASS" starttime="20220310 00:07:37.246" endtime="20220310 00:07:37.396"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1 second</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220310 00:07:38.413" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220310 00:07:37.396" endtime="20220310 00:07:38.413"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${txtbox_password}</arg>
+<arg>test1234</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220310 00:07:38.413" level="INFO">Typing text 'test1234' into text field '//*[@id="password"]'.</msg>
+<status status="PASS" starttime="20220310 00:07:38.413" endtime="20220310 00:07:38.630"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220310 00:07:40.634" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20220310 00:07:38.630" endtime="20220310 00:07:40.634"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>//*[@id="login"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220310 00:07:40.634" level="INFO">Clicking button '//*[@id="login"]'.</msg>
+<status status="PASS" starttime="20220310 00:07:40.634" endtime="20220310 00:07:40.816"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220310 00:07:41.818" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220310 00:07:40.816" endtime="20220310 00:07:41.818"/>
+</kw>
+<status status="PASS" starttime="20220310 00:07:37.245" endtime="20220310 00:07:41.818"/>
+</kw>
+<kw name="VerfiyErrorMessageShow" library="keywords">
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${txt_error}</arg>
+<arg>Wrong e-mail or password</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20220310 00:07:41.848" level="INFO">Element '//*[@id="signInError"]' contains text 'Wrong e-mail or password'.</msg>
+<status status="PASS" starttime="20220310 00:07:41.819" endtime="20220310 00:07:41.848"/>
+</kw>
+<status status="PASS" starttime="20220310 00:07:41.819" endtime="20220310 00:07:41.848"/>
+</kw>
+<kw name="Finish testCase" library="CommonFunctionality" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220310 00:07:41.848" endtime="20220310 00:07:45.474"/>
+</kw>
+<status status="PASS" starttime="20220310 00:07:41.848" endtime="20220310 00:07:45.474"/>
+</kw>
+<doc>This Test Case to Verifies That User Fail to Login With Wrong Email</doc>
+<tag>Header</tag>
+<status status="PASS" starttime="20220310 00:07:35.341" endtime="20220310 00:07:45.474"/>
+</test>
+<test id="s1-t2" name="Login Should Fails With Wrong Password">
+<kw name="Start testCase" library="CommonFunctionality" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220310 00:07:45.474" level="INFO">Opening browser 'chrome' to base url 'http://rental14.infotiv.net/'.</msg>
+<status status="PASS" starttime="20220310 00:07:45.474" endtime="20220310 00:07:47.222"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220310 00:07:47.223" endtime="20220310 00:07:47.361"/>
+</kw>
+<status status="PASS" starttime="20220310 00:07:45.474" endtime="20220310 00:07:47.361"/>
+</kw>
+<kw name="Login Should Fails With Wrong Password" library="keywords">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${"email_test"}</arg>
+<arg>Test1234@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220310 00:07:47.365" level="INFO">Typing text 'Test1234@gmail.com' into text field '//*[@id="email"]'.</msg>
+<status status="PASS" starttime="20220310 00:07:47.363" endtime="20220310 00:07:47.529"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1 second</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220310 00:07:48.536" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220310 00:07:47.530" endtime="20220310 00:07:48.536"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${txtbox_password}</arg>
+<arg>test123</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220310 00:07:48.536" level="INFO">Typing text 'test123' into text field '//*[@id="password"]'.</msg>
+<status status="PASS" starttime="20220310 00:07:48.536" endtime="20220310 00:07:48.706"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220310 00:07:50.714" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20220310 00:07:48.706" endtime="20220310 00:07:50.714"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>//*[@id="login"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220310 00:07:50.715" level="INFO">Clicking button '//*[@id="login"]'.</msg>
+<status status="PASS" starttime="20220310 00:07:50.715" endtime="20220310 00:07:50.989"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220310 00:07:52.006" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220310 00:07:50.989" endtime="20220310 00:07:52.006"/>
+</kw>
+<status status="PASS" starttime="20220310 00:07:47.362" endtime="20220310 00:07:52.006"/>
+</kw>
+<kw name="VerfiyErrorMessageShow" library="keywords">
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${txt_error}</arg>
+<arg>Wrong e-mail or password</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20220310 00:07:52.035" level="INFO">Element '//*[@id="signInError"]' contains text 'Wrong e-mail or password'.</msg>
+<status status="PASS" starttime="20220310 00:07:52.007" endtime="20220310 00:07:52.035"/>
+</kw>
+<status status="PASS" starttime="20220310 00:07:52.007" endtime="20220310 00:07:52.035"/>
+</kw>
+<kw name="Finish testCase" library="CommonFunctionality" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220310 00:07:52.051" endtime="20220310 00:07:55.886"/>
+</kw>
+<status status="PASS" starttime="20220310 00:07:52.051" endtime="20220310 00:07:55.887"/>
+</kw>
+<doc>This Test Case to Verifies That User Fail to Login With Wrong Password</doc>
+<tag>Header</tag>
+<status status="PASS" starttime="20220310 00:07:45.474" endtime="20220310 00:07:55.888"/>
+</test>
+<test id="s1-t3" name="Login Should Fails With Wrong PassWord and wrongEmail">
+<kw name="Start testCase" library="CommonFunctionality" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220310 00:07:55.890" level="INFO">Opening browser 'chrome' to base url 'http://rental14.infotiv.net/'.</msg>
+<status status="PASS" starttime="20220310 00:07:55.890" endtime="20220310 00:07:58.087"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220310 00:07:58.087" endtime="20220310 00:07:58.234"/>
+</kw>
+<status status="PASS" starttime="20220310 00:07:55.890" endtime="20220310 00:07:58.235"/>
+</kw>
+<kw name="Login Should Fails With Wrong PassWord and wrongEmail" library="keywords">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${"email_test"}</arg>
+<arg>Test12gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220310 00:07:58.238" level="INFO">Typing text 'Test12gmail.com' into text field '//*[@id="email"]'.</msg>
+<status status="PASS" starttime="20220310 00:07:58.236" endtime="20220310 00:07:58.473"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1 second</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220310 00:07:59.483" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220310 00:07:58.473" endtime="20220310 00:07:59.484"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${txtbox_password}</arg>
+<arg>test1235</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220310 00:07:59.488" level="INFO">Typing text 'test1235' into text field '//*[@id="password"]'.</msg>
+<status status="PASS" starttime="20220310 00:07:59.484" endtime="20220310 00:07:59.638"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1 second</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220310 00:08:00.646" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220310 00:07:59.638" endtime="20220310 00:08:00.646"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>//*[@id="login"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220310 00:08:00.646" level="INFO">Clicking button '//*[@id="login"]'.</msg>
+<status status="PASS" starttime="20220310 00:08:00.646" endtime="20220310 00:08:00.906"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220310 00:08:01.912" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220310 00:08:00.907" endtime="20220310 00:08:01.913"/>
+</kw>
+<status status="PASS" starttime="20220310 00:07:58.235" endtime="20220310 00:08:01.913"/>
+</kw>
+<kw name="VerfiyErrorMessageShow" library="keywords">
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${txt_error}</arg>
+<arg>Wrong e-mail or password</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20220310 00:08:02.003" level="INFO">Element '//*[@id="signInError"]' contains text 'Wrong e-mail or password'.</msg>
+<status status="PASS" starttime="20220310 00:08:01.916" endtime="20220310 00:08:02.003"/>
+</kw>
+<status status="PASS" starttime="20220310 00:08:01.915" endtime="20220310 00:08:02.003"/>
+</kw>
+<kw name="Finish testCase" library="CommonFunctionality" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220310 00:08:02.003" endtime="20220310 00:08:04.221"/>
+</kw>
+<status status="PASS" starttime="20220310 00:08:02.003" endtime="20220310 00:08:04.222"/>
+</kw>
+<doc>This Test Case to Verifies That User Fail to Login With Wrong Password and WrongEmail</doc>
+<tag>Header</tag>
+<status status="PASS" starttime="20220310 00:07:55.890" endtime="20220310 00:08:04.223"/>
+</test>
+<test id="s1-t4" name="Verify login Fails With Blank Password">
+<kw name="Start testCase" library="CommonFunctionality" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220310 00:08:04.232" level="INFO">Opening browser 'chrome' to base url 'http://rental14.infotiv.net/'.</msg>
+<status status="PASS" starttime="20220310 00:08:04.231" endtime="20220310 00:08:06.074"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220310 00:08:06.074" endtime="20220310 00:08:06.213"/>
+</kw>
+<status status="PASS" starttime="20220310 00:08:04.230" endtime="20220310 00:08:06.217"/>
+</kw>
+<kw name="Verify login Fails With Blank Password" library="keywords">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${"email_test"}</arg>
+<arg>Test1234@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220310 00:08:06.226" level="INFO">Typing text 'Test1234@gmail.com' into text field '//*[@id="email"]'.</msg>
+<status status="PASS" starttime="20220310 00:08:06.225" endtime="20220310 00:08:06.406"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220310 00:08:08.412" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20220310 00:08:06.407" endtime="20220310 00:08:08.412"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>//*[@id="login"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220310 00:08:08.412" level="INFO">Clicking button '//*[@id="login"]'.</msg>
+<status status="PASS" starttime="20220310 00:08:08.412" endtime="20220310 00:08:08.577"/>
+</kw>
+<status status="PASS" starttime="20220310 00:08:06.222" endtime="20220310 00:08:08.577"/>
+</kw>
+<kw name="Verfiy That If The Password Is Not Filled The Pop-Up Alert Is Shown Not Emplty" library="keywords">
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${password_popup_alert}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20220310 00:08:08.583" level="INFO">Length is 47</msg>
+<status status="PASS" starttime="20220310 00:08:08.582" endtime="20220310 00:08:08.583"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220310 00:08:09.600" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220310 00:08:08.583" endtime="20220310 00:08:09.600"/>
+</kw>
+<status status="PASS" starttime="20220310 00:08:08.579" endtime="20220310 00:08:09.601"/>
+</kw>
+<kw name="Finish testCase" library="CommonFunctionality" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220310 00:08:09.606" endtime="20220310 00:08:13.518"/>
+</kw>
+<status status="PASS" starttime="20220310 00:08:09.604" endtime="20220310 00:08:13.518"/>
+</kw>
+<doc>This Test Case To Verifies That User Fail to Login With Empty Password and the Pop-up alrert "Fill In This Field" is shown</doc>
+<tag>Header</tag>
+<status status="PASS" starttime="20220310 00:08:04.227" endtime="20220310 00:08:13.518"/>
+</test>
+<test id="s1-t5" name="Confirm login Fails With Blank Email">
+<kw name="Start testCase" library="CommonFunctionality" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220310 00:08:13.534" level="INFO">Opening browser 'chrome' to base url 'http://rental14.infotiv.net/'.</msg>
+<status status="PASS" starttime="20220310 00:08:13.534" endtime="20220310 00:08:15.405"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220310 00:08:15.405" endtime="20220310 00:08:15.571"/>
+</kw>
+<status status="PASS" starttime="20220310 00:08:13.534" endtime="20220310 00:08:15.572"/>
+</kw>
+<kw name="Confirm login Fails With Blank Email" library="keywords">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${txtbox_password}</arg>
+<arg>test1235</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220310 00:08:15.575" level="INFO">Typing text 'test1235' into text field '//*[@id="password"]'.</msg>
+<status status="PASS" starttime="20220310 00:08:15.575" endtime="20220310 00:08:15.729"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220310 00:08:17.744" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20220310 00:08:15.729" endtime="20220310 00:08:17.744"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>//*[@id="login"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220310 00:08:17.744" level="INFO">Clicking button '//*[@id="login"]'.</msg>
+<status status="PASS" starttime="20220310 00:08:17.744" endtime="20220310 00:08:18.069"/>
+</kw>
+<status status="PASS" starttime="20220310 00:08:15.573" endtime="20220310 00:08:18.070"/>
+</kw>
+<kw name="Verfiy that if the Email is not filled the pop-up alert is shown not emplty" library="keywords">
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${email_popup_alert}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20220310 00:08:18.074" level="INFO">Length is 44</msg>
+<status status="PASS" starttime="20220310 00:08:18.074" endtime="20220310 00:08:18.074"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220310 00:08:20.085" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20220310 00:08:18.074" endtime="20220310 00:08:20.085"/>
+</kw>
+<status status="PASS" starttime="20220310 00:08:18.071" endtime="20220310 00:08:20.085"/>
+</kw>
+<kw name="Finish testCase" library="CommonFunctionality" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220310 00:08:20.090" endtime="20220310 00:08:22.288"/>
+</kw>
+<status status="PASS" starttime="20220310 00:08:20.090" endtime="20220310 00:08:22.288"/>
+</kw>
+<doc>This Test Case to Verifies That User fail to login With Empty Email and the Pop-Up alrert "Fill In This Field" is shown</doc>
+<tag>Header</tag>
+<status status="PASS" starttime="20220310 00:08:13.518" endtime="20220310 00:08:22.289"/>
+</test>
+<test id="s1-t6" name="Confirm login Fails With Blank Email and Blank Password">
+<kw name="Start testCase" library="CommonFunctionality" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220310 00:08:22.298" level="INFO">Opening browser 'chrome' to base url 'http://rental14.infotiv.net/'.</msg>
+<status status="PASS" starttime="20220310 00:08:22.297" endtime="20220310 00:08:24.630"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220310 00:08:24.631" endtime="20220310 00:08:24.795"/>
+</kw>
+<status status="PASS" starttime="20220310 00:08:22.296" endtime="20220310 00:08:24.796"/>
+</kw>
+<kw name="Confirm login Fails With Blank Email and Blank Password" library="keywords">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${txtbox_password}</arg>
+<arg>${EMPTY}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220310 00:08:24.801" level="INFO">Typing text '' into text field '//*[@id="password"]'.</msg>
+<status status="PASS" starttime="20220310 00:08:24.797" endtime="20220310 00:08:24.970"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220310 00:08:26.997" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20220310 00:08:24.970" endtime="20220310 00:08:26.997"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${"email_test"}</arg>
+<arg>${EMPTY}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220310 00:08:26.997" level="INFO">Typing text '' into text field '//*[@id="email"]'.</msg>
+<status status="PASS" starttime="20220310 00:08:26.997" endtime="20220310 00:08:27.136"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220310 00:08:29.144" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20220310 00:08:27.137" endtime="20220310 00:08:29.144"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>//*[@id="login"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220310 00:08:29.144" level="INFO">Clicking button '//*[@id="login"]'.</msg>
+<status status="PASS" starttime="20220310 00:08:29.144" endtime="20220310 00:08:29.243"/>
+</kw>
+<status status="PASS" starttime="20220310 00:08:24.796" endtime="20220310 00:08:29.243"/>
+</kw>
+<kw name="Verfiy that if the Email is not filled and the password not filled the pop-up alert is shown not emplty" library="keywords">
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${email_popup_alert}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20220310 00:08:29.248" level="INFO">Length is 44</msg>
+<status status="PASS" starttime="20220310 00:08:29.245" endtime="20220310 00:08:29.249"/>
+</kw>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${password_popup_alert}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20220310 00:08:29.250" level="INFO">Length is 47</msg>
+<status status="PASS" starttime="20220310 00:08:29.249" endtime="20220310 00:08:29.250"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220310 00:08:31.262" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20220310 00:08:29.250" endtime="20220310 00:08:31.263"/>
+</kw>
+<status status="PASS" starttime="20220310 00:08:29.244" endtime="20220310 00:08:31.263"/>
+</kw>
+<kw name="Finish testCase" library="CommonFunctionality" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220310 00:08:31.265" endtime="20220310 00:08:34.088"/>
+</kw>
+<status status="PASS" starttime="20220310 00:08:31.264" endtime="20220310 00:08:34.088"/>
+</kw>
+<doc>This test case to verifies that user fail to log in with empty Email and empty password and the Pop-up alrert "Fill In This Field" is shown</doc>
+<tag>Header</tag>
+<status status="PASS" starttime="20220310 00:08:22.293" endtime="20220310 00:08:34.088"/>
+</test>
+<status status="PASS" starttime="20220310 00:07:34.978" endtime="20220310 00:08:34.088"/>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="6" fail="0" skip="0">Header</stat>
+</tag>
+<suite>
+<stat pass="6" fail="0" skip="0" id="s1" name="InvalidLogin">InvalidLogin</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
