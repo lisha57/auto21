@@ -23,7 +23,7 @@ pipeline {
         }
           stage('newman') {
             steps {
-                sh 'newman run Postman_Collection.postman_collection.json --environment Postman_Environment.postman_environment.json --reporters junit'
+                bat 'newman run Postman_Collection.postman_collection.json --environment Postman_Environment.postman_environment.json --reporters junit'
             }
             post {
                 always {
@@ -33,7 +33,7 @@ pipeline {
         }
         stage('Robot Framework System tests with Selenium') {
                     steps {
-                        sh 'robot --variable BROWSER:headlesschrome -d Results  Tests'
+                        bat 'robot --variable BROWSER:headlesschrome -d Results  Tests'
                     }
                     post {
                         always {
