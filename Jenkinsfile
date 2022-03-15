@@ -1,7 +1,11 @@
 pipeline {
     agent any
     stages {
-
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/lisha57/auto21.git'
+            }
+        }
         stage('Build') {
             steps {
                 bat "mvn compile"
