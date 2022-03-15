@@ -6,24 +6,24 @@ pipeline {
                 git 'https://github.com/lisha57/auto21.git'
             }
         }
-        stage('Build') {
-            steps {
-                bat "mvn compile"
-            }
-        }
-        stage('Test') {
-            steps {
-                bat "mvn test"
-            }
-            post {
-                always {
-                    junit '**/TEST*.xml'
-                }
-            }
-        }
+//         stage('Build') {
+//             steps {
+//                 bat "mvn compile"
+//             }
+//         }
+//         stage('Test') {
+//             steps {
+//                 bat "mvn test"
+//             }
+//             post {
+//                 always {
+//                     junit '**/TEST*.xml'
+//                 }
+//             }
+//         }
           stage('newman') {
             steps {
-                bat 'newman run Postman_Collection.postman_collection.json --environment Postman_Environment.postman_environment.json --reporters junit'
+                sh 'newman run Postman_Collection.postman_collection.json --environment Postman_Environment.postman_environment.json --reporters junit'
             }
             post {
                 always {
@@ -33,7 +33,7 @@ pipeline {
         }
         stage('Robot Framework System tests with Selenium') {
                     steps {
-                        bat 'robot --variable BROWSER:headlesschrome -d Results  Tests'
+                        sh 'robot --variable BROWSER:headlesschrome -d Results  Tests'
                     }
                     post {
                         always {
