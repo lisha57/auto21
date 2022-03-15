@@ -8,12 +8,12 @@ pipeline {
         }
         stage('Build') {
             steps {
-                ws "mvn compile"
+                bat "mvn compile"
             }
         }
         stage('Test') {
             steps {
-                ws "mvn test"
+                bat "mvn test"
             }
             post {
                 always {
