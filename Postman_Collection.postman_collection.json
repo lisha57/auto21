@@ -1,0 +1,216 @@
+{
+	"info": {
+		"_postman_id": "ed63657a-75e5-49d8-bb37-f3ab0b3d38ec",
+		"name": "Postman Example Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Basic Functionalities",
+			"item": [
+				{
+					"name": "ListUsers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"pm.test(\"Status code is 200\", () => pm.expect(responseCode.code).to.equal(200));\r",
+									"pm.test(\"Response time 2 seconds\", () => pm.expect(pm.response.responseTime).to.be.below(20000));\r",
+									"pm.test(\"6 results per page\", () => pm.expect(jsonData.data.length).to.equal(6));\r",
+									"pm.test(\"Avatar in the second result is not null\", () => pm.expect(jsonData.data[1].avatar).to.not.equal(null));\r",
+									"pm.test(\"last_name in the third results is Wong\", () => pm.expect(jsonData.data[2].last_name).to.equal(\"Wong\"));\r",
+									"pm.test(\"The name Eve is somewhere in the result\", () => pm.expect(pm.response.text()).to.include(\"Eve\"));\r",
+									"\r",
+									"pm.globals.set(\"fifth_id\", jsonData.data[4].id);\r",
+									"console.log(pm.globals.get(\"fifth_id\"))\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SingleUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"pm.test(\"Status code is 200\", () => pm.expect(responseCode.code).to.equal(200));\r",
+									"pm.test(\"Response time 2 seconds\", () => pm.expect(pm.response.responseTime).to.be.below(20000));\r",
+									"pm.test(\"Returned id same as id of global variable \", () => pm.expect(jsonData.data.id).to.equal(pm.globals.get(\"fifth_id\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/{{fifth_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"{{fifth_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateUser",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"pm.test(\"Status code is 201\", () => pm.expect(responseCode.code).to.equal(201));\r",
+									"pm.test(\"Response time 2 seconds\", () => pm.expect(pm.response.responseTime).to.be.below(20000));\r",
+									"pm.test(\"Returned id not null\", () => pm.expect(jsonData.id).to.not.equal(null));\r",
+									"pm.test(\"createAt id not null\", () => pm.expect(jsonData.createAt).to.not.equal(null));\r",
+									"pm.test(\"returned name is Rasha\", () => pm.expect(jsonData.name).to.equal(\"Rasha\"));\r",
+									"pm.test(\"returned job is Barista\", () => pm.expect(jsonData.job).to.equal(\"Barista\"));\r",
+									"pm.globals.set(\"my_user_id\", jsonData.id);\r",
+									"console.log(pm.globals.get(\"my_user_id\"))\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Rasha\",\r\n    \"job\": \"Barista\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"pm.test(\"Status code is 200\", () => pm.expect(responseCode.code).to.equal(200));\r",
+									"pm.test(\"Response time 2 seconds\", () => pm.expect(pm.response.responseTime).to.be.below(20000));\r",
+									"pm.test(\"returned job is Postman Master\", () => pm.expect(jsonData.job).to.equal(\"Postman Master\"));\r",
+									"pm.test(\"updatedAt id not null\", () => pm.expect(jsonData.updatedAt).to.not.equal(null));\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Rasha\",\r\n    \"job\": \"Postman Master\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/{{my_user_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"{{my_user_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", () => pm.expect(responseCode.code).to.equal(204));\r",
+									"pm.test(\"Response time 2 seconds\", () => pm.expect(pm.response.responseTime).to.be.below(20000));\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/{{my_user_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"{{my_user_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
