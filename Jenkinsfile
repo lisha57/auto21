@@ -8,12 +8,12 @@ pipeline {
         }
         stage('Build') {
             steps {
-                powershell "mvn compile"
+                pwsh "mvn compile"
             }
         }
         stage('Test') {
             steps {
-                powershell "mvn test"
+                pwsh "mvn test"
             }
             post {
                 always {
