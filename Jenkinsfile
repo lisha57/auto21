@@ -23,17 +23,8 @@ pipeline {
                       }
                  }
 
-        stage('Test') {
-            steps {
-                bat "mvn test"
-            }
-            post {
-                always {
-                    junit '**/TEST*.xml'
-                }
-            }
-        }
-          stage('newman') {
+
+         stage('newman') {
             steps {
                 sh 'newman run Postman_Collection.postman_collection.json --environment Postman_Environment.postman_environment.json --reporters junit'
             }
