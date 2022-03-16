@@ -6,9 +6,10 @@ pipeline {
                 git 'https://github.com/lisha57/auto21.git'
             }
         }
-        stage('Build') {
-            steps {
-                bat "mvn compile"
+        stage('junit build') {
+                    steps {
+                        sh "mvn compile"
+
             }
         }
         stage('Test') {
