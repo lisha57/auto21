@@ -15,20 +15,20 @@ pipeline {
         stage('junit test') {
                     steps {
                         sh "mvn test"
-                   }
-                           }
-                           stage('Cobertura coverage') {
-                               steps {
-                                   sh "mvn -B cobertura:cobertura"
-                               }
-                           }
-         stage('newman') {
+             }
+        }
+         stage('Cobertura coverage') {
+                     steps {
+                         sh "mvn -B cobertura:cobertura"
+               }
+        }
+         stage('API testing with Newman') {
             steps {
                 sh 'newman run Postman_Collection.postman_collection.json --environment Postman_Environment.postman_environment.json --reporters junit'
             }
             post {
                 always {
-                        junit '**/*xml'
+                         junit 'newman/newman-*.xml'
                  }
             }
         }
