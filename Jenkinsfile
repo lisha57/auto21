@@ -51,14 +51,7 @@ pipeline {
                         }
                     }
         }
-            post {
-                always{
-                    xunit (
-                        thresholds: [ skipped(failureThreshold: '0'), failed(failureThreshold: '0') ],
-                        tools: [ BoostTest(pattern: 'boost/*.xml') ]
-                    )
-                }
-            }
+
 //         post {
             //                  always {
             //                     cobertura autoUpdateHealth: false, autoUpdateStability: false,
