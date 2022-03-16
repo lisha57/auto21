@@ -1,44 +1,49 @@
 pipeline {
     agent any
     stages {
-
-        stage('Build') {
+        stage('Checkout') {
             steps {
-                sh "mvn compile"
+                git 'https://github.com/lisha57/auto21.git'
             }
         }
-        stage('Test') {
+        stage('junit build') {
+                    steps {
+                        sh "mvn compile"
+
+            }
+        }
+        stage('junit test') {
+                    steps {
+                        sh "mvn test"
+             }
+                 post {
+                     always {
+                         junit '**/TEST*.xml'
+                     }
+                 }
+        }
+         stage('API testing with Newman') {
             steps {
-                sh "mvn test"
+                sh 'newman run Postman_Collection.postman_collection.json --environment Postman_Environment.postman_environment.json --reporters junit'
             }
             post {
                 always {
-                    junit '**/TEST*.xml'
-                }
+                          junit '**/*xml'
+                 }
             }
-        }
-        stage('newman') {
-                    steps {
-                           sh 'newman run Postman_Collection.postman_collection.json --environment Postman_Environment.postman_environment.json --reporters junit'
 
-                    }
-                    post {
-                        always {
-                                junit '**/*xml'
-                        }
-                    }
         }
         stage('Robot Framework System tests with Selenium') {
                     steps {
-                        sh 'robot -d Results Tests'
+                        sh 'robot --variable BROWSER:headlesschrome -d Results  Tests'
                     }
                     post {
                         always {
                             script {
                                   step(
                                         [
-                                          $class              : 'RobotPublisher',
-                                          outputPath          : 'results',
+                                          $class              : 'FunctionalTestSuite',
+                                          outputPath          : 'Results',
                                           outputFileName      : '**/output.xml',
                                           reportFileName      : '**/report.html',
                                           logFileName         : '**/log.html',
@@ -51,65 +56,7 @@ pipeline {
                             }
                         }
                     }
-                }
+        }
+
     }
 }
-
-
-// pipeline {
-//     agent any
-//     stages {
-//         stage('Checkout') {
-//             steps {
-//                 git 'https://github.com/lisha57/auto21.git'
-//             }
-//         }
-//         stage('junit build') {
-//                     steps {
-//                         sh "mvn compile"
-//
-//             }
-//         }
-//         stage('junit test') {
-//                     steps {
-//                         sh "mvn test"
-//              }
-//         }
-//          stage('API testing with Newman') {
-//             steps {
-//                 sh 'newman run Postman_Collection.postman_collection.json --environment Postman_Environment.postman_environment.json --reporters junit'
-//             }
-//             post {
-//                 always {
-//                           junit '**/*xml'
-//                  }
-//             }
-//
-//         }
-//         stage('Robot Framework System tests with Selenium') {
-//                     steps {
-//                         sh 'robot --variable BROWSER:headlesschrome -d Results  Tests'
-//                     }
-//                     post {
-//                         always {
-//                             script {
-//                                   step(
-//                                         [
-//                                           $class              : 'FunctionalTestSuite',
-//                                           outputPath          : 'Results',
-//                                           outputFileName      : '**/output.xml',
-//                                           reportFileName      : '**/report.html',
-//                                           logFileName         : '**/log.html',
-//                                           disableArchiveOutput: false,
-//                                           passThreshold       : 50,
-//                                           unstableThreshold   : 40,
-//                                           otherFiles          : "**/*.png,**/*.jpg",
-//                                         ]
-//                                   )
-//                             }
-//                         }
-//                     }
-//         }
-//
-//     }
-// }
