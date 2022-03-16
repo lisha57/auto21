@@ -15,15 +15,13 @@ pipeline {
         stage('junit test') {
                     steps {
                         sh "mvn test"
-                    }
-                }
-         stage('Cobertura coverage') {
-                      steps {
-                         sh "mvn -B cobertura:cobertura"
-                      }
-                 }
-
-
+                   }
+                           }
+                           stage('Cobertura coverage') {
+                               steps {
+                                   sh "mvn -B cobertura:cobertura"
+                               }
+                           }
          stage('newman') {
             steps {
                 sh 'newman run Postman_Collection.postman_collection.json --environment Postman_Environment.postman_environment.json --reporters junit'
