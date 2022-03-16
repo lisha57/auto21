@@ -17,6 +17,12 @@ pipeline {
                         sh "mvn test"
                     }
                 }
+         stage('Cobertura coverage') {
+                      steps {
+                         sh "mvn -B cobertura:cobertura"
+                      }
+                 }
+
         stage('Test') {
             steps {
                 bat "mvn test"
