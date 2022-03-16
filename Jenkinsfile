@@ -12,6 +12,11 @@ pipeline {
 
             }
         }
+        stage('junit test') {
+                    steps {
+                        sh "mvn test"
+                    }
+                }
         stage('Test') {
             steps {
                 bat "mvn test"
