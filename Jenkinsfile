@@ -40,7 +40,7 @@ pipeline {
             script {
               step(
                 [
-                  $class                    : 'FunctionalTestSuite',
+                  $class                    : 'Results',
                   outputPath                : 'Results',
                   outputFileName            : "*.xml",
                   reportFileName            : "report.html",
