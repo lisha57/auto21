@@ -33,6 +33,11 @@ pipeline {
             }
 
         }
+          stage('tool Code Coverage') {
+               steps {
+                   sh 'mvn clean cobertura:cobertura'
+                     }
+                }
 
         stage('Robot Framework System tests with Selenium') {
                     steps {
