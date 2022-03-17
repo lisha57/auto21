@@ -33,51 +33,31 @@ pipeline {
             }
 
         }
-        stage('Tests') {
 
-          steps {
-            echo 'Testing...'
-            script {
-              step(
-                [
-                  $class                    : 'FunctionalTestSuite',
-                  outputPath                : 'Results',
-                  outputFileName            : "*.xml",
-                  reportFileName            : "report.html",
-                  logFileName               : "log.html",
-                  disableArchiveOutput      : true,
-                  passThreshold             : 100,
-                  unstableThreshold         : 95.0,
-                  otherFiles                : "*.png"
-                ]
-              )
-            }
-          }
+        stage('Robot Framework System tests with Selenium') {
+                    steps {
+                        sh 'robot --variable BROWSER:headlesschrome -d Results  Tests'
+                    }
+                    post {
+                        always {
+                            script {
+                                  step(
+                                        [
+                                          $class              : 'FunctionalTestSuite',
+                                          outputPath          : 'Results',
+                                          outputFileName      : '**/output.xml',
+                                          reportFileName      : '**/report.html',
+                                          logFileName         : '**/log.html',
+                                          disableArchiveOutput: false,
+                                          passThreshold       : 50,
+                                          unstableThreshold   : 40,
+                                          otherFiles          : "**/*.png,**/*.jpg",
+                                        ]
+                                  )
+                            }
+                        }
+                    }
         }
-//         stage('Robot Framework System tests with Selenium') {
-//                     steps {
-//                         sh 'robot --variable BROWSER:headlesschrome -d Results  Tests'
-//                     }
-//                     post {
-//                         always {
-//                             script {
-//                                   step(
-//                                         [
-//                                           $class              : 'FunctionalTestSuite',
-//                                           outputPath          : 'Results',
-//                                           outputFileName      : '**/output.xml',
-//                                           reportFileName      : '**/report.html',
-//                                           logFileName         : '**/log.html',
-//                                           disableArchiveOutput: false,
-//                                           passThreshold       : 50,
-//                                           unstableThreshold   : 40,
-//                                           otherFiles          : "**/*.png,**/*.jpg",
-//                                         ]
-//                                   )
-//                             }
-//                         }
-//                     }
-//         }
 
     }
 }
