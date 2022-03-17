@@ -34,7 +34,7 @@ pipeline {
 
         }
 
-        stage('Cobertura Coverage') {
+        stage('tool to Coverage') {
                         steps {
                             sh 'mvn clean cobertura:cobertura'
                         }
