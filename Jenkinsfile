@@ -40,11 +40,12 @@ pipeline {
             script {
               step(
                 [
+                  $class                    : 'FunctionalTestSuite',
                   outputPath                : 'Results',
                   outputFileName            : "*.xml",
                   reportFileName            : "report.html",
                   logFileName               : "log.html",
-                  disableArchiveOutput      : false,
+                  disableArchiveOutput      : true,
                   passThreshold             : 100,
                   unstableThreshold         : 95.0,
                   otherFiles                : "*.png"
