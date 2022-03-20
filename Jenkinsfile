@@ -48,37 +48,36 @@ pipeline {
                     steps {
                         sh 'robot --variable BROWSER:headlesschrome -d Results  Tests'
                     }
-
+                    post {
+                        always {
+                            script {
+                                  step(
+                                        [
+                                          $class              : 'RobotPublisher',
+                                          outputPath          : 'Results',
+                                          outputFileName      : '**/output.xml',
+                                          reportFileName      : '**/report.html',
+                                          logFileName         : '**/log.html',
+                                          disableArchiveOutput: false,
+                                          passThreshold       : 50,
+                                          unstableThreshold   : 40,
+                                          otherFiles          : "**/*.png,**/*.jpg",
+                                        ]
+                                  )
+                            }
+                        }
+                    }
         }
-        post {
-            always {
-                script {
-                      step(
-                            [
-                              $class              : 'RobotPublisher',
-                              outputPath          : 'Results',
-                              outputFileName      : '**/output.xml',
-                              reportFileName      : '**/report.html',
-                              logFileName         : '**/log.html',
-                              disableArchiveOutput: false,
-                              passThreshold       : 50,
-                              unstableThreshold   : 40,
-                              otherFiles          : "**/*.png,**/*.jpg",
-                            ]
-                      )
-                }
+            post {
+                 always {
+                    cobertura autoUpdateHealth: false, autoUpdateStability: false,
+                    coberturaReportFile: '**/target/site/cobertura/coverage.xml', conditionalCoverageTargets: '70, 0, 0',
+                    enableNewApi: true, failUnhealthy: false, failUnstable: false, lineCoverageTargets: '80, 0, 0',
+                    maxNumberOfBuilds: 0, methodCoverageTargets: '80, 0, 0', onlyStable: false, sourceEncoding: 'ASCII',
+                    zoomCoverageChart: false
+
+                 }
             }
-        }
-        post {
-             always {
-                cobertura autoUpdateHealth: false, autoUpdateStability: false,
-                coberturaReportFile: '**/target/site/cobertura/coverage.xml', conditionalCoverageTargets: '70, 0, 0',
-                enableNewApi: true, failUnhealthy: false, failUnstable: false, lineCoverageTargets: '80, 0, 0',
-                maxNumberOfBuilds: 0, methodCoverageTargets: '80, 0, 0', onlyStable: false, sourceEncoding: 'ASCII',
-                zoomCoverageChart: false
-
-             }
-        }
 
 
     }
