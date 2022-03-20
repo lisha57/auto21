@@ -58,7 +58,7 @@ pipeline {
                             script {
                                   step(
                                         [
-                                          $class              : 'FunctionalTestSuite',
+                                          $class              : 'RobotPublisher',
                                           outputPath          : 'Results',
                                           outputFileName      : '**/output.xml',
                                           reportFileName      : '**/report.html',
