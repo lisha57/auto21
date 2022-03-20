@@ -1,8 +1,2 @@
 .idea/
 auto21.iml
-*.class
-/Results/
-log.html
-*output.xml
-*report.html
-*selenium-screenshot*.png
