@@ -4,7 +4,8 @@ Library  SeleniumLibrary
 *** Keywords ***
 
 Start testCase
-  Open Browser  http://rental14.infotiv.net/webpage/html/gui/index.php  ${BROWSER}
+  Open Browser    about:blank ${BROWSER}
+
   Maximize Browser Window
 
 Finish testCase
