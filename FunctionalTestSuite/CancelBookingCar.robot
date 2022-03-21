@@ -8,6 +8,7 @@ Test Teardown   CommonFunctionality.Finish testCase
 
 *** Variables ***
 ${browser}  chrome
+${browser}  headlesschrome
 ${url}  http://rental14.infotiv.net/
 ${"email_test"}  //*[@id="email"]
 ${email_popup_alert}  //*[@id="email"]  Please fill out this field.
