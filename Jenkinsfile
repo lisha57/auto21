@@ -52,7 +52,7 @@ pipeline {
         stage('Robot Framework System tests with Selenium') {
                     steps {
 
-                        sh 'robot --variable BROWSER:headlesschrome -d Results  FunctionalTestSuite'
+                        sh 'robot --variable BROWSER:headlesschrome -d Results  Resources'
                     }
                     post {
                         always {
