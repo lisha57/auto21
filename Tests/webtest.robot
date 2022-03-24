@@ -1,6 +1,6 @@
 *** Settings ***
-Resource   ../../Resources/CommonFunctionality.robot
-Resource   ../../Resources/keywords.robot
+Library  SeleniumLibrary
+
 Library    DateTime
 
 Test Setup  Start testCase
